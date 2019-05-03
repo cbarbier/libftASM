@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/03 15:43:37 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/03 17:17:03 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,28 @@ TEST_SRC	= tests/main.c \
 			  tests/test_bzero.c \
 			  tests/test_strcat.c \
 			  tests/test_isalpha.c \
-			  tests/test_isdigit.c
+			  tests/test_isdigit.c \
+			  tests/test_isalnum.c \
+			  tests/test_isascii.c \
+			  tests/test_isprint.c \
+			  tests/test_isupper.c \
+			  tests/test_islower.c \
+			  tests/test_tolower.c \
+			  tests/test_toupper.c
 
 TEST_EXE	= tester.out
 
 SRC			= ft_bzero.s \
 			  ft_strcat.s \
 			  ft_isalpha.s \
-			  ft_isdigit.s
+			  ft_isdigit.s \
+			  ft_isalnum.s \
+			  ft_isascii.s \
+			  ft_isprint.s \
+			  ft_isupper.s \
+			  ft_islower.s \
+			  ft_tolower.s \
+			  ft_toupper.s
 
 OBJ			= $(SRC:.s=.o)
 
