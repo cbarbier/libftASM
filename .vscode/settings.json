@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "libtester.h": "c",
+        "libfts.h": "c",
+        "tests.h": "c"
+    }
+}

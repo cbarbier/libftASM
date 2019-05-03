@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/03 12:47:45 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/03 15:03:36 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,14 @@ LOADER		= ld -macosx_version_min 10.8 -lSystem
 
 LIB			= libfts.a
 
-TEST_SRC	= tests/main.c
+TEST_SRC	= tests/main.c \
+			  tests/test_bzero.c \
+			  tests/test_strcat.c
 TEST_EXE	= tester.out
 
-SRC			= ft_bzero.s
+SRC			= ft_bzero.s \
+			  ft_strcat.s \
+			  ft_isalpha.s
 
 OBJ			= $(SRC:.s=.o)
 
@@ -46,8 +50,8 @@ $(LIB): $(OBJS)
 
 tests: $(LIB)
 	Make -C tester
-	$(CC) $(CFLAGS) $(TEST_SRC) -o $(TEST_EXE) -L. -lfts -L tester -ltester -I inc -I tester/inc
-	./tests/$(TEST_EXE)
+	$(CC) $(TEST_SRC) -o $(TEST_EXE) -L. -lfts -L tester -ltester -I inc -I tester/inc -I tests
+	./$(TEST_EXE)
 
 clean:
 	rm -rf $(OBJS)
