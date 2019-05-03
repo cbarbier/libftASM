@@ -17,7 +17,7 @@ global _ft_bzero
 _ft_bzero:
 enter 0, 0
 while: ; n > 0 && *s
-    cmp word[ rdi], 0
+    cmp word [rdi], 0
     je end
     cmp rsi, 0
     je end

@@ -6,28 +6,21 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/04/30 16:51:49 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:44:33 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <libfts.h>
-
-static int      test_fbzero()
-{
-    return (0);
-}
-
+#include <tester.h>
 
 int             main(void)
 {
-    char        buf[] = "is bzero working ? NO or YES";
-    char        *page = malloc(4096);
+    t_unit	tests;
 
-    ft_bzero(page, 4098);
-    free(page);
-    ft_bzero(buf + 17, 6);
-    printf("buf : %s %s\n", buf, buf + 24);
+    my_memset(&tests, 0, sizeof(t_unit));
+    my_putendl("\t\t{ ------------------------------- }");
+	my_putendl("\t\t{ -       LIB ASM TESTER        - }");
+	my_putendl("\t\t{ ------------------------------- }");
+    
     return (0);
 }

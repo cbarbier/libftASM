@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/04/30 17:00:34 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/03 12:47:45 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ LOADER		= ld -macosx_version_min 10.8 -lSystem
 
 LIB			= libfts.a
 
-TEST_SRC	= main.c
-TEST_EXE	= testlibfts
+TEST_SRC	= tests/main.c
+TEST_EXE	= tester.out
 
 SRC			= ft_bzero.s
 
@@ -44,9 +44,10 @@ $(LIB): $(OBJS)
 	ar -rc $(LIB) $(OBJS)
 	@echo "$@ LibftASM built\t\t\033[0;32m✓\033[0m"
 
-test: $(TEST_SRC)
-	@gcc main.c -o $(TEST_EXE) -Iinc -L. -lfts
-	./$(TEST_EXE)
+tests: $(LIB)
+	Make -C tester
+	$(CC) $(CFLAGS) $(TEST_SRC) -o $(TEST_EXE) -L. -lfts -L tester -ltester -I inc -I tester/inc
+	./tests/$(TEST_EXE)
 
 clean:
 	rm -rf $(OBJS)
@@ -58,4 +59,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re tests

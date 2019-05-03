@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:27:46 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/04/30 16:28:55 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/03 11:46:21 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,4 @@
 # define LIBFTS_H
 # include <unistd.h>
 void                ft_bzero(char *s, size_t n);
-#endif
+#endif 
