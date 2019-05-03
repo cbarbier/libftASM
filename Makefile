@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/03 15:03:36 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/03 15:43:37 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,16 @@ LIB			= libfts.a
 
 TEST_SRC	= tests/main.c \
 			  tests/test_bzero.c \
-			  tests/test_strcat.c
+			  tests/test_strcat.c \
+			  tests/test_isalpha.c \
+			  tests/test_isdigit.c
+
 TEST_EXE	= tester.out
 
 SRC			= ft_bzero.s \
 			  ft_strcat.s \
-			  ft_isalpha.s
+			  ft_isalpha.s \
+			  ft_isdigit.s
 
 OBJ			= $(SRC:.s=.o)
 
@@ -44,7 +48,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.s
 	@mkdir -p $(OBJ_DIR)
 	$(NASM) $(FLAGS) $< -o $@ 
 
-$(LIB): $(OBJS)
+$(LIB): $(OBJS) $(INC)
 	ar -rc $(LIB) $(OBJS)
 	@echo "$@ LibftASM built\t\t\033[0;32m✓\033[0m"
 

@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/03 14:54:23 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/03 15:46:29 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 static int          quicktest(void)
 {
-    char tmp[100];
+    int             i = -51321312;
 
-    memmove(tmp, "test", 4);
-    printf("%s\n", ft_strcat(tmp, " successfull"));
+    printf("%d %d, %d\n",i, isalpha(i), ft_isalpha(i));
     return (0);
 }
 
@@ -36,6 +35,8 @@ int             main(void)
     my_putstr("\n - PART 1 -\n");
     ok += test_bzero(&tot);
     ok += test_strcat(&tot);
+    ok += test_isalpha(&tot);
+    ok += test_isdigit(&tot);
     my_putendl("\n\n\033[43m-------------------------------\033[0m");
 	my_putstr("\033[43mTOTAL\t\033[0m");
     my_putnbr(ok);

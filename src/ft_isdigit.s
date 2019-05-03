@@ -1,7 +1,7 @@
 ;# **************************************************************************** #
 ;#                                                                              #
 ;#                                                         :::      ::::::::    #
-;#    ft_isalpha.s                                       :+:      :+:    :+:    #
+;#    ft_isdigit.s                                       :+:      :+:    :+:    #
 ;#                                                     +:+ +:+         +:+      #
 ;#    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 ;#                                                 +#+#+#+#+#+   +#+            #
@@ -11,22 +11,18 @@
 ;# **************************************************************************** #
 
 SECTION .text
-global _ft_isalpha
+global _ft_isdigit
 
-; int ft_isalpha(int c);
-_ft_isalpha:
+; int ft_isdigit(int c);
+_ft_isdigit:
 enter 0, 0
     cmp edi, 0
     jl false
     cmp edi, 255
     jg false
-    cmp dil, 'A'
+    cmp dil, '0'
     jl false
-    cmp dil, 'z'
-    jg false
-    cmp dil, 'a'
-    jge true
-    cmp dil, 'Z'
+    cmp dil, '9'
     jg false
 true:
     mov rax, 1
