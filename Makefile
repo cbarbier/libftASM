@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/03 17:17:03 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/03 17:39:55 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRC			= ft_bzero.s \
 			  ft_isupper.s \
 			  ft_islower.s \
 			  ft_tolower.s \
-			  ft_toupper.s
+			  ft_toupper.s \
+			  ft_puts.s
 
 OBJ			= $(SRC:.s=.o)
 
