@@ -1,7 +1,7 @@
 ;# **************************************************************************** #
 ;#                                                                              #
 ;#                                                         :::      ::::::::    #
-;#    ft_strdup.s                                       :+:      :+:    :+:     #
+;#    ft_cat.s                                         :+:      :+:    :+:      #
 ;#                                                     +:+ +:+         +:+      #
 ;#    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 ;#                                                 +#+#+#+#+#+   +#+            #
@@ -10,26 +10,43 @@
 ;#                                                                              #
 ;# **************************************************************************** #
 
-SECTION .text
-extern _malloc
-extern _ft_strlen
-global _ft_strdup
+SECTION .data
+tst db "test", 10, 0
+buf times 1025 db 0
 
-; char *strdup(const char *s1);
-_ft_strdup:
+SECTION .text
+global _ft_cat
+
+;void   ft_cat(int fd)
+_ft_cat:
 enter 0, 0
-    mov r12, rdi
-    call _ft_strlen
-    mov rdi, rax
-    inc rdi
-    mov r13, rax
-    call _malloc
-    mov rdi, rax
-    mov rsi, r12
-    mov r12, rax
-    mov rcx, r13
-    rep movsb
-    mov byte [rdi], 0
-    mov rax, r12
+    push r10
+    mov r10, rdi
+    cmp r10, 0
+    jl return
+    mov rdi, 1
+    lea rsi, [rel tst]
+    mov rdx, 5
+    mov rax, 0x2000004
+    syscall
+read_loop:
+    mov rdi, r10
+    lea rsi, [rel tst]
+    mov rdx, 1024
+    mov rax, 0x2000003 ;read
+    syscall
+    cmp rax, 0
+    jle return
+    lea rsi, [rel buf]
+    mov byte [rsi + rax], 0
+    mov rdi, 1
+    mov rdx, rax
+    mov rax, 0x2000004 ; write
+    syscall
+    cmp rax, 0
+    jl return
+    jmp read_loop
+return:
+    pop r10
 leave
 ret

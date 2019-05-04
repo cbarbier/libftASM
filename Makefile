@@ -54,7 +54,8 @@ SRC			= ft_bzero.s \
 			  ft_strlen.s \
 			  ft_memset.s \
 			  ft_memcpy.s \
-			  ft_strdup.s
+			  ft_strdup.s \
+			  ft_cat.s
 
 OBJ			= $(SRC:.s=.o)
 

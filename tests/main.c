@@ -18,7 +18,7 @@ static int          quicktest(void)
     int             i = 127;
 
     printf("quicktest\n");
-    printf("strlen %lu\n", ft_strlen("mama"));
+    ft_cat(0);
     return (0);
 }
 
