@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:27:46 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/03 17:33:27 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/04 16:59:03 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,8 @@ int                 ft_islower(int c);
 int                 ft_toupper(int c);
 int                 ft_tolower(int c);
 int                 ft_puts(const char *s);
-#endif 
+size_t              ft_strlen(const char *s);
+void                *ft_memset(void *s, int c, size_t len);
+void                *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+char                *ft_strdup(const char *s1);
+#endif

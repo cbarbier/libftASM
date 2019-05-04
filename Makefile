@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/03 17:39:55 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/04 17:00:59 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,12 @@ TEST_SRC	= tests/main.c \
 			  tests/test_isupper.c \
 			  tests/test_islower.c \
 			  tests/test_tolower.c \
-			  tests/test_toupper.c
+			  tests/test_toupper.c \
+			  tests/test_puts.c \
+			  tests/test_strlen.c \
+			  tests/test_memset.c \
+			  tests/test_memcpy.c \
+			  tests/test_strdup.c
 
 TEST_EXE	= tester.out
 
@@ -45,7 +50,11 @@ SRC			= ft_bzero.s \
 			  ft_islower.s \
 			  ft_tolower.s \
 			  ft_toupper.s \
-			  ft_puts.s
+			  ft_puts.s \
+			  ft_strlen.s \
+			  ft_memset.s \
+			  ft_memcpy.s \
+			  ft_strdup.s
 
 OBJ			= $(SRC:.s=.o)
 

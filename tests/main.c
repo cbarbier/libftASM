@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/03 17:40:22 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/04 17:01:14 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int          quicktest(void)
     int             i = 127;
 
     printf("quicktest\n");
-    ft_puts("puts working\n");
+    printf("strlen %lu\n", ft_strlen("mama"));
     return (0);
 }
 
@@ -45,6 +45,11 @@ int             main(void)
     ok += test_isupper(&tot);
     ok += test_toupper(&tot);
     ok += test_tolower(&tot);
+    ok += test_puts(&tot);
+    ok += test_strlen(&tot);
+    ok += test_memset(&tot);
+    ok += test_memcpy(&tot);
+    ok += test_strdup(&tot);
     my_putendl("\n\n\033[32m-------------------------------\033[0m");
 	my_putstr("\033[32mTOTAL\t\033[0m");
     my_putnbr(ok);

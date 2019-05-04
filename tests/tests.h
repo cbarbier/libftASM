@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:27:46 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/03 16:58:37 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/04 16:59:38 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ int                test_isupper(int *total);
 int                test_islower(int *total);
 int                test_toupper(int *total);
 int                test_tolower(int *total);
+int                test_puts(int *total);
+int                test_strlen(int *total);
+int                test_memset(int *total);
+int                test_memcpy(int *total);
+int                test_strdup(int *total);
 #endif 

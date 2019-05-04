@@ -1,7 +1,7 @@
 ;# **************************************************************************** #
 ;#                                                                              #
 ;#                                                         :::      ::::::::    #
-;#    ft_puts.s                                          :+:      :+:    :+:    #
+;#    ft_strlen.s                                       :+:      :+:    :+:     #
 ;#                                                     +:+ +:+         +:+      #
 ;#    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 ;#                                                 +#+#+#+#+#+   +#+            #
@@ -10,34 +10,21 @@
 ;#                                                                              #
 ;# **************************************************************************** #
 
-SECTION .data
 SECTION .text
-global _ft_puts
+global _ft_strlen
 
-; int ft_puts(const char *s);
-_ft_puts:
-enter 16, 0
-    mov rdx, 0
-while1: ; *s
-    cmp byte [rdi + rdx], 0
-    je end1
-    inc rdx
-    jmp while1
-end1:
-    mov rsi, rdi
-    mov rdi, 1
-    mov rax, 0x2000004
-    syscall
-    js end
-    mov rdi, 1
-    mov byte [rsp+32], 10
-    mov rsi, rsp
-    add rsi, 32
-    mov rdx, 1
-    mov rax, 0x2000004
-    syscall
-    js end
-    mov rax, 10
-end:
+; size_t ft_strlen(const char *c);
+_ft_strlen:
+enter 0, 0
+    push r10
+    xor rcx, rcx
+    dec rcx
+    mov r10, rdi
+    xor al, al
+    repne scasb
+    sub rdi, r10
+    mov rax, rdi
+    dec rax
+    pop r10
 leave
 ret
