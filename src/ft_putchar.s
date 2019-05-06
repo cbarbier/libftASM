@@ -1,7 +1,7 @@
 ;# **************************************************************************** #
 ;#                                                                              #
 ;#                                                         :::      ::::::::    #
-;#    ft_cat.s                                         :+:      :+:    :+:      #
+;#    ft_putchar.s                                          :+:      :+:    :+:    #
 ;#                                                     +:+ +:+         +:+      #
 ;#    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 ;#                                                 +#+#+#+#+#+   +#+            #
@@ -11,34 +11,24 @@
 ;# **************************************************************************** #
 
 SECTION .data
-buf times 5 db 0
-
+tst db "test", 10, 0
 SECTION .text
-global _ft_cat
+global _ft_putchar
 
-;void   ft_cat(int fd)
-_ft_cat:
-enter 0, 0
-    mov ebx, edi
-    cmp ebx, 0
-    jl return
-read_loop:
-    mov edi, ebx
-    lea rsi, [rel buf]
-    mov edx, 4
-    mov rax, 0x2000003 ; read
-    syscall
-    cmp eax, 0
-    jle return
-    lea rsi, [rel buf]
-    mov byte [rsi + rax], 0
-    mov rdi, 1
-    mov rdx, rax
-    mov rax, 0x2000004 ; write
-    syscall
-    cmp rax, 0
-    jl return
-    jmp read_loop
+; int ft_putchar(int c);
+_ft_putchar:
+enter 16, 0
+   mov byte [rsp + 32], dil
+   mov rdi, 1
+   mov rsi, rsp
+   add rsi, 32
+   mov rdx, 1
+   mov rax, 0x2000004
+   syscall
+   cmp rax, 0
+   jl return
+   xor rax, rax
+   mov al, byte [rsp + 32]
 return:
 leave
 ret

@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/04 17:01:14 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:25:47 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 
 static int          quicktest(void)
 {
-    int             i = 127;
+    unsigned char c = 42;
+    unsigned char r = ((c << 4) | (c >> 4));
 
     printf("quicktest\n");
-    ft_cat(0);
+    if (((c << 4) | (c >> 4)) ==  ft_swapbits(c))
+        printf("%x == %x", r, ft_swapbits(c));
+
     return (0);
 }
 
@@ -50,6 +53,10 @@ int             main(void)
     ok += test_memset(&tot);
     ok += test_memcpy(&tot);
     ok += test_strdup(&tot);
+    ok += test_cat(&tot);
+    ok += test_strrchr(&tot);
+    ok += test_putchar(&tot);
+    ok += test_swapbits(&tot);
     my_putendl("\n\n\033[32m-------------------------------\033[0m");
 	my_putstr("\033[32mTOTAL\t\033[0m");
     my_putnbr(ok);

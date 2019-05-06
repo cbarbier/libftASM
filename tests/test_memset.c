@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/04 16:51:09 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/06 17:18:09 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int             test_memset(int *tot)
     tests.head = NULL;
 	tests.cur = NULL;
 	*tot += 3;
-	my_putendl("\n### FT_MEMCPY TESTS");
+	my_putendl("\n### FT_MEMSET TESTS");
     load_test(&tests, " 1/3 [EASY] - all char of simple string are set to * ??\t",\
 			test1);
     load_test(&tests, " 2/3 [EASY] - only part of a ling string ??\t\t",\

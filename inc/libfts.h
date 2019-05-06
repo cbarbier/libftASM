@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:27:46 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/04 16:59:03 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:05:20 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ size_t              ft_strlen(const char *s);
 void                *ft_memset(void *s, int c, size_t len);
 void                *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 char                *ft_strdup(const char *s1);
+char                *ft_strrchr(const char *s1, int c);
+int                 ft_putchar(int c);
 void                ft_cat(int fd);
+unsigned char       ft_swapbits(unsigned char c);
 #endif

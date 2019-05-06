@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:27:46 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/04 16:59:38 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/06 18:56:19 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <libtester.h>
 # include <stdlib.h>
 # include <strings.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 
 int                test_bzero(int *total);
 int                test_strcat(int *total);
@@ -35,4 +38,8 @@ int                test_strlen(int *total);
 int                test_memset(int *total);
 int                test_memcpy(int *total);
 int                test_strdup(int *total);
+int                test_strrchr(int *total);
+int                test_cat(int *total);
+int                test_putchar(int *total);
+int                test_swapbits(int *total);
 #endif 

@@ -1,7 +1,7 @@
 ;# **************************************************************************** #
 ;#                                                                              #
 ;#                                                         :::      ::::::::    #
-;#    ft_cat.s                                         :+:      :+:    :+:      #
+;#    ft_strrchr.s                                       :+:      :+:    :+:     #
 ;#                                                     +:+ +:+         +:+      #
 ;#    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 ;#                                                 +#+#+#+#+#+   +#+            #
@@ -10,35 +10,41 @@
 ;#                                                                              #
 ;# **************************************************************************** #
 
-SECTION .data
-buf times 5 db 0
-
 SECTION .text
-global _ft_cat
+extern _malloc
+extern _ft_strlen
+global _ft_strrchr
 
-;void   ft_cat(int fd)
-_ft_cat:
+; char *strrchr(const char *s1, int c);
+_ft_strrchr:
 enter 0, 0
-    mov ebx, edi
-    cmp ebx, 0
-    jl return
-read_loop:
-    mov edi, ebx
-    lea rsi, [rel buf]
-    mov edx, 4
-    mov rax, 0x2000003 ; read
-    syscall
-    cmp eax, 0
-    jle return
-    lea rsi, [rel buf]
-    mov byte [rsi + rax], 0
-    mov rdi, 1
-    mov rdx, rax
-    mov rax, 0x2000004 ; write
-    syscall
+    mov r12, rdi
+    call _ft_strlen
     cmp rax, 0
-    jl return
-    jmp read_loop
+    je ret_null
+    mov rcx, rax
+    mov rdi, r12
+    mov al, sil
+    repne scasb
+    dec rdi
+    cmp rcx, 0
+    je pos_end
+    mov rax, rdi
+    jmp return
+pos_end:
+    cmp esi, 0
+    je ret_pos
+    cmp byte [rdi], sil
+    jne ret_null
+    jmp ret_pos2
+ret_pos:
+    inc rdi
+ret_pos2:
+    mov rax, rdi
+    jmp return
+ret_null:
+    mov rax, 0
+    jmp return
 return:
 leave
 ret

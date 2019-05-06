@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strdup.c                                      :+:      :+:    :+:   */
+/*   test_cat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/06 14:13:08 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/04 16:51:09 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,49 @@
 
 static int				test1()
 {
-	char		test[] = "test";
-	char		*mine;
-	char		*his;
+	int		fd;
 
-	mine = ft_strdup(test);
-	his = strdup(test);
-	if (strcmp(mine, his))
-			return (1);
+	fd = open("auteur", O_RDONLY);
+	ft_cat(fd);
+	close(fd);
 	return (0);
 }
 
 static int				test2()
 {
-	char		test[] = "test";
-	char		*mine;
-	char		*his;
+		int		fd;
 
-	mine = ft_strdup(test);
-	his = strdup(test);
-	if (strcmp(mine, his))
-			return (1);
+	fd = open("Makefile", O_RDONLY);
+	ft_cat(fd);
+	close(fd);
 	return (0);
 }
 
 static int				test3()
 {
-	char		test[] = "test";
-	char		*mine;
-	char		*his;
-
-	mine = ft_strdup(test);
-	his = strdup(test);
-	if (strcmp(mine, his))
-			return (1);
+	ft_cat(-1);
 	return (0);
 }
 
-int             test_strdup(int *tot)
+static int				test4()
+{
+	ft_cat(0);
+	return (0);
+}
+
+int             test_cat(int *tot)
 {
     t_unit      tests;
 
     tests.head = NULL;
 	tests.cur = NULL;
 	*tot += 3;
-	my_putendl("\n### FT_strdup TESTS");
-    load_test(&tests, " 1/3 [EASY] - all char of simple string are cpy to * ??\t",\
+	my_putendl("\n### FT_CAT TESTS");
+    load_test(&tests, " 1/3 [EASY] - Can you print the auhtor file ??\t\t",\
 			test1);
-    load_test(&tests, " 2/3 [EASY] - only part of a ling string ??\t\t",\
+    load_test(&tests, " 2/3 [EASY] - What about the Makefile ??\t\t",\
 			test2);
-    load_test(&tests, " 3/3 [EASY] - what if len == 0 ????\t\t\t",\
+    load_test(&tests, " 3/3 [EASY] - what the file descriptor is -1????\t",\
 			test3);
 	tests.returnval = ft_execute_tests(&tests);
 	return (tests.returnval);

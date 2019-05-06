@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strdup.c                                      :+:      :+:    :+:   */
+/*   test_swapbits.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/06 14:13:08 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:31:21 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,36 @@
 
 static int				test1()
 {
-	char		test[] = "test";
-	char		*mine;
-	char		*his;
+	unsigned char c;
 
-	mine = ft_strdup(test);
-	his = strdup(test);
-	if (strcmp(mine, his))
-			return (1);
+	c = 42;
+	if (ft_swapbits(c) != (unsigned char)((c << 4) | (c >> 4)))
+		return (1);
 	return (0);
 }
 
 static int				test2()
 {
-	char		test[] = "test";
-	char		*mine;
-	char		*his;
+	unsigned char c;
 
-	mine = ft_strdup(test);
-	his = strdup(test);
-	if (strcmp(mine, his))
-			return (1);
+	c = 0xFD;
+	if (ft_swapbits(c) != (unsigned char)((c << 4) | (c >> 4)))
+		return (1);
 	return (0);
 }
 
-static int				test3()
-{
-	char		test[] = "test";
-	char		*mine;
-	char		*his;
-
-	mine = ft_strdup(test);
-	his = strdup(test);
-	if (strcmp(mine, his))
-			return (1);
-	return (0);
-}
-
-int             test_strdup(int *tot)
+int             test_swapbits(int *tot)
 {
     t_unit      tests;
 
     tests.head = NULL;
 	tests.cur = NULL;
-	*tot += 3;
-	my_putendl("\n### FT_strdup TESTS");
-    load_test(&tests, " 1/3 [EASY] - all char of simple string are cpy to * ??\t",\
+	*tot += 2;
+	my_putendl("\n### FT_SWAPBITS TESTS");
+    load_test(&tests, " 1/2 [EASY] - easy value with 42\t\t\t",\
 			test1);
-    load_test(&tests, " 2/3 [EASY] - only part of a ling string ??\t\t",\
+    load_test(&tests, " 2/2 [EASY] - harder 0xFD ??\t\t\t\t",\
 			test2);
-    load_test(&tests, " 3/3 [EASY] - what if len == 0 ????\t\t\t",\
-			test3);
 	tests.returnval = ft_execute_tests(&tests);
 	return (tests.returnval);
 }

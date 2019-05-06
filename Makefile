@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/04 17:00:59 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/06 18:56:43 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,11 @@ TEST_SRC	= tests/main.c \
 			  tests/test_strlen.c \
 			  tests/test_memset.c \
 			  tests/test_memcpy.c \
-			  tests/test_strdup.c
+			  tests/test_strdup.c \
+			  tests/test_strrchr.c \
+			  tests/test_cat.c \
+			  tests/test_putchar.c \
+			  tests/test_swapbits.c
 
 TEST_EXE	= tester.out
 
@@ -55,7 +59,10 @@ SRC			= ft_bzero.s \
 			  ft_memset.s \
 			  ft_memcpy.s \
 			  ft_strdup.s \
-			  ft_cat.s
+			  ft_strrchr.s \
+			  ft_cat.s \
+			  ft_putchar.s \
+			  ft_swapbits.s
 
 OBJ			= $(SRC:.s=.o)
 
