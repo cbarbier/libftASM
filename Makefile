@@ -6,7 +6,7 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/06 18:56:43 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/07 14:31:18 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS		= -f macho64
 
 LOADER		= ld -macosx_version_min 10.8 -lSystem
 
-LIB			= libfts.a
+NAME		= libfts.a
 
 TEST_SRC	= tests/main.c \
 			  tests/test_bzero.c \
@@ -36,10 +36,11 @@ TEST_SRC	= tests/main.c \
 			  tests/test_memset.c \
 			  tests/test_memcpy.c \
 			  tests/test_strdup.c \
-			  tests/test_strrchr.c \
+			  tests/test_strchr.c \
 			  tests/test_cat.c \
 			  tests/test_putchar.c \
-			  tests/test_swapbits.c
+			  tests/test_swapbits.c \
+			  tests/test_putnbr.c
 
 TEST_EXE	= tester.out
 
@@ -59,10 +60,11 @@ SRC			= ft_bzero.s \
 			  ft_memset.s \
 			  ft_memcpy.s \
 			  ft_strdup.s \
-			  ft_strrchr.s \
+			  ft_strchr.s \
 			  ft_cat.s \
 			  ft_putchar.s \
-			  ft_swapbits.s
+			  ft_swapbits.s \
+			  ft_putnbr.s
 
 OBJ			= $(SRC:.s=.o)
 
@@ -74,28 +76,30 @@ OBJ_DIR		= obj
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS		= $(addprefix $(OBJ_DIR)/, $(OBJ))
 
-all : $(LIB)
+all : $(NAME)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.s
 	@mkdir -p $(OBJ_DIR)
 	$(NASM) $(FLAGS) $< -o $@ 
 
-$(LIB): $(OBJS) $(INC)
-	ar -rc $(LIB) $(OBJS)
+$(NAME): $(OBJS) $(INC)
+	ar -rc $(NAME) $(OBJS)
 	@echo "$@ LibftASM built\t\t\033[0;32m✓\033[0m"
 
-tests: $(LIB)
+tests: $(NAME)
 	Make -C tester
 	$(CC) $(TEST_SRC) -o $(TEST_EXE) -L. -lfts -L tester -ltester -I inc -I tester/inc -I tests
 	./$(TEST_EXE)
 
 clean:
+	Make -C tester clean
 	rm -rf $(OBJS)
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
+	Make -C tester fclean
 	rm -rf $(TEST_EXE)
-	rm -rf $(LIB)
+	rm -rf $(NAME)
 
 re: fclean all
 

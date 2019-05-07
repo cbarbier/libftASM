@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:27:46 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/06 18:56:19 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/07 14:31:33 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ int                test_strlen(int *total);
 int                test_memset(int *total);
 int                test_memcpy(int *total);
 int                test_strdup(int *total);
-int                test_strrchr(int *total);
+int                test_strchr(int *total);
 int                test_cat(int *total);
 int                test_putchar(int *total);
 int                test_swapbits(int *total);
+int                test_putnbr(int *total);
 #endif 

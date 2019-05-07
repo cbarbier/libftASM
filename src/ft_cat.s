@@ -10,8 +10,9 @@
 ;#                                                                              #
 ;# **************************************************************************** #
 
+extern _read
 SECTION .data
-buf times 5 db 0
+buf times 42 db 0
 
 SECTION .text
 global _ft_cat
@@ -19,16 +20,16 @@ global _ft_cat
 ;void   ft_cat(int fd)
 _ft_cat:
 enter 0, 0
-    mov ebx, edi
-    cmp ebx, 0
+    mov r12d, edi
+    cmp r12d, 0
     jl return
 read_loop:
-    mov edi, ebx
+    xor rax, rax
+    mov edi, r12d
     lea rsi, [rel buf]
-    mov edx, 4
-    mov rax, 0x2000003 ; read
-    syscall
-    cmp eax, 0
+    mov edx, 41
+    call _read
+    cmp rax, 0
     jle return
     lea rsi, [rel buf]
     mov byte [rsi + rax], 0

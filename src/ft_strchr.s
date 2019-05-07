@@ -1,7 +1,7 @@
 ;# **************************************************************************** #
 ;#                                                                              #
 ;#                                                         :::      ::::::::    #
-;#    ft_strrchr.s                                       :+:      :+:    :+:     #
+;#    ft_strchr.s                                       :+:      :+:    :+:     #
 ;#                                                     +:+ +:+         +:+      #
 ;#    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 ;#                                                 +#+#+#+#+#+   +#+            #
@@ -13,10 +13,10 @@
 SECTION .text
 extern _malloc
 extern _ft_strlen
-global _ft_strrchr
+global _ft_strchr
 
 ; char *strrchr(const char *s1, int c);
-_ft_strrchr:
+_ft_strchr:
 enter 0, 0
     mov r12, rdi
     call _ft_strlen

@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/06 19:25:47 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/07 14:39:07 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 
 static int          quicktest(void)
 {
-    unsigned char c = 42;
-    unsigned char r = ((c << 4) | (c >> 4));
-
-    printf("quicktest\n");
-    if (((c << 4) | (c >> 4)) ==  ft_swapbits(c))
-        printf("%x == %x", r, ft_swapbits(c));
-
+    // printf("cat -1\n");
+    // ft_cat(-1);
+    // printf("cat 3\n");
+    // ft_cat(3);
+    // printf("cat 0\n");
+    // ft_cat(0);
+    // ft_cat(2);
+    // printf("putnbr(-2147483648)\n");
+    // ft_putnbr(-2147483648);
+    // printf("\nputnbr(0)\n");
+    // ft_putnbr(0);
     return (0);
 }
 
@@ -54,9 +58,10 @@ int             main(void)
     ok += test_memcpy(&tot);
     ok += test_strdup(&tot);
     ok += test_cat(&tot);
-    ok += test_strrchr(&tot);
+    ok += test_strchr(&tot);
     ok += test_putchar(&tot);
     ok += test_swapbits(&tot);
+    ok += test_putnbr(&tot);
     my_putendl("\n\n\033[32m-------------------------------\033[0m");
 	my_putstr("\033[32mTOTAL\t\033[0m");
     my_putnbr(ok);
