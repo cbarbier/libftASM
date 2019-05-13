@@ -6,11 +6,10 @@
 #    By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 11:00:31 by fmaury            #+#    #+#              #
-#    Updated: 2019/05/07 14:31:18 by cbarbier         ###   ########.fr        #
+#    Updated: 2019/05/13 14:19:25 by cbarbier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NASM		= /Users/cbarbier/.brew/Cellar/nasm/2.14.02/bin/nasm
 NASM		= nasm
 
 FLAGS		= -f macho64
