@@ -6,7 +6,7 @@
 /*   By: cbarbier <cbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 16:32:41 by cbarbier          #+#    #+#             */
-/*   Updated: 2019/05/07 14:39:07 by cbarbier         ###   ########.fr       */
+/*   Updated: 2019/05/13 13:48:50 by cbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ static int          quicktest(void)
     // printf("cat -1\n");
     // ft_cat(-1);
     // printf("cat 3\n");
-    // ft_cat(3);
-    // printf("cat 0\n");
     // ft_cat(0);
-    // ft_cat(2);
+    // printf("cat 0\n");
+    // ft_cat(open('src', O_RDONLY));
     // printf("putnbr(-2147483648)\n");
     // ft_putnbr(-2147483648);
     // printf("\nputnbr(0)\n");

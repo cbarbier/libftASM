@@ -16,7 +16,7 @@ SECTION .data
 SECTION .text
 global _ft_putnbr
 
-; int ft_putnbr(const char *s);
+; int ft_putnbr(int n);
 _ft_putnbr:
 enter 32, 0
     mov ebx, edi
