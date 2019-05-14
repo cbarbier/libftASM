@@ -19,6 +19,8 @@ global _ft_putnbr
 ; int ft_putnbr(int n);
 _ft_putnbr:
 enter 32, 0
+    push r12
+    push r13
     mov ebx, edi
     cmp ebx, 0
     jge positive
@@ -47,5 +49,7 @@ print_digit:
     add rdx, '0'
     mov rdi, rdx
     call _ft_putchar
+    pop r13
+    pop r12
 leave
 ret

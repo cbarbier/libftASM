@@ -11,13 +11,13 @@
 ;# **************************************************************************** #
 
 SECTION .text
-extern _malloc
 extern _ft_strlen
 global _ft_strchr
 
 ; char *strrchr(const char *s1, int c);
 _ft_strchr:
 enter 0, 0
+    push r12
     mov r12, rdi
     call _ft_strlen
     cmp rax, 0
@@ -46,5 +46,6 @@ ret_null:
     mov rax, 0
     jmp return
 return:
+    pop r12
 leave
 ret
