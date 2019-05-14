@@ -11,6 +11,7 @@
 ;# **************************************************************************** #
 
 SECTION .data
+nul db "(null)", 10, 0
 SECTION .text
 global _ft_puts
 
@@ -18,6 +19,8 @@ global _ft_puts
 _ft_puts:
 enter 16, 0
     mov rdx, 0
+    cmp rdi, 0
+    je put_null
 while1: ; *s
     cmp byte [rdi + rdx], 0
     je end1
@@ -28,7 +31,7 @@ end1:
     mov rdi, 1
     mov rax, 0x2000004
     syscall
-    js end
+    jc end
     mov rdi, 1
     mov byte [rsp+32], 10
     mov rsi, rsp
@@ -36,8 +39,18 @@ end1:
     mov rdx, 1
     mov rax, 0x2000004
     syscall
-    js end
+    jc end
     mov rax, 10
 end:
 leave
 ret
+
+put_null:
+    mov rdi, 1
+    lea rsi, [rel nul]
+    mov rdx, 7
+    mov rax, 0x2000004
+    syscall
+    jc end
+    mov rax, 10
+    jmp end

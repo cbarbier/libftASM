@@ -30,18 +30,29 @@ static int				test2()
 	return (0);
 }
 
+static int				test3()
+{
+	char		*test = 0;
+
+	if (ft_puts(test) != puts(test))
+			return (1);
+	return (0);
+}
+
 int             test_puts(int *tot)
 {
     t_unit      tests;
 
     tests.head = NULL;
 	tests.cur = NULL;
-	*tot += 2;
+	*tot += 3;
 	my_putendl("\n### FT_PUTS TESTS");
-    load_test(&tests, " 1/2 [EASY] - same return values ??\t\t\t",\
+    load_test(&tests, " 1/3 [EASY] - same return values ??\t\t\t",\
 			test1);
-    load_test(&tests, " 2/2 [EASY] - COMPARE the outputs ??\t\t\t",\
+    load_test(&tests, " 2/3 [EASY] - COMPARE the outputs ??\t\t\t",\
 			test2);
+    load_test(&tests, " 3/3 [HARD] - what if null pointer??\t\t\t",\
+			test3);
 	tests.returnval = ft_execute_tests(&tests);
 	return (tests.returnval);
 }
