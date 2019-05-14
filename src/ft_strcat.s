@@ -16,8 +16,8 @@ global _ft_strcat
 ; char *strcat(char *restrict s1, const char *restrict s2);
 _ft_strcat:
 enter 0, 0
-mov r8, 0
-mov r9, 0
+    mov r8, 0
+    mov r9, 0
 while1: ; *s1
     cmp byte [rdi + r8], 0
     je end1
