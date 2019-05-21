@@ -21,6 +21,7 @@ _ft_putnbr:
 enter 32, 0
     push r12
     push r13
+    push rbx
     mov ebx, edi
     cmp ebx, 0
     jge positive
@@ -49,6 +50,7 @@ print_digit:
     add rdx, '0'
     mov rdi, rdx
     call _ft_putchar
+    pop rbx
     pop r13
     pop r12
 leave
